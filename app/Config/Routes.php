@@ -32,8 +32,32 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/dashboard', 'User::index');
+$routes->get('/logout', 'User::logout');
+$routes->get('/login', 'User::showLogin');
+$routes->post('/login', 'User::checkLogin');
 $routes->get('/register', 'User::showRegister');
 $routes->post('/register', 'User::saveRegister');
+
+$routes->group('movies', function ($routes) {
+	$routes->get('', 'Movie::index');
+	$routes->post('save', 'Movie::save');
+	$routes->get('add-movie', 'Movie::showAddForm');
+	$routes->get('edit-movie/(:num)', 'Movie::showEdit/$1');
+	$routes->post('update/(:num)', 'Movie::saveEdit/$1');
+	$routes->delete('(:num)', 'Movie::delete/$1');
+	$routes->get('(:any)', 'Movie::detail/$1');
+});
+
+// $routes->get('/', 'Home::index', ['filter' => 'authuser']);
+// $routes->get('/dashboard', 'User::index', ['filter' => 'authuser']);
+// $routes->get('/logout', 'User::logout');
+// $routes->get('/login', 'User::showLogin');
+// $routes->post('/login', 'User::checkLogin');
+// $routes->get('/register', 'User::showRegister');
+// $routes->post('/register', 'User::saveRegister');
+
+
 
 /**
  * --------------------------------------------------------------------

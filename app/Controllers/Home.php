@@ -7,9 +7,9 @@ class Home extends BaseController
 	public function index()
 	{
 		$data = [
-			'title' => 'Home Page'
+			'title' => 'NetflixFake | Welcome to Portal'
 		];
-		return view('pages/home', $data);
+		return view('pages/welcome', $data);
 	}
 
 	//--------------------------------------------------------------------

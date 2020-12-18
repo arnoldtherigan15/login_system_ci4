@@ -18,6 +18,11 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/template/dist/css/skins/_all-skins.min.css">
+    <style>
+        .thumbnail {
+            height: 400px !important;
+        }
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +35,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition <?= session('role') == 'user' ? 'skin-red-light' : 'skin-blue-light'; ?> sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
         <?= $this->include('layout/header'); ?>
@@ -57,6 +62,8 @@
     <script>
         $(document).ready(function() {
             $('.sidebar-menu').tree()
+            $('.alert').fadeIn(1000).delay(2000).fadeOut(1000);
+
         })
     </script>
 </body>

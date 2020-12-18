@@ -36,7 +36,7 @@
         </div>
 
         <div class="register-box-body">
-            <p class="login-box-msg">Register a new membership</p>
+            <p class="login-box-msg">Login to access the portal</p>
             <?php
             $errors = session()->getFlashdata('errors');
             if (!empty($errors)) : ?>
@@ -55,15 +55,7 @@
                     <p><?= esc($message) ?></p>
                 </div>
             <?php endif ?>
-            <form action="/register" method="post">
-                <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="First name" name="first_name">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Last name" name="last_name">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
+            <form action="/login" method="post">
                 <div class="form-group has-feedback">
                     <input type="email" class="form-control" placeholder="Email" name="email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -72,16 +64,13 @@
                     <input type="password" class="form-control" placeholder="Password" name="password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Retype password" name="rePassword">
-                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-                </div>
+
                 <div class="row">
                     <!-- /.col -->
                     <!-- <div class="col-xs-2">
                     </div> -->
                     <div class="col-xs-12">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
                     </div>
                     <!-- <div class="col-xs-2">
                     </div> -->
@@ -91,8 +80,8 @@
 
 
             <div style="display: flex; margin-top:10px">
-                <p>Already have an account?</p>
-                <a href="/login" class="text-center" style="margin-left:5px">Login here !!</a>
+                <p>Don't have an account?</p>
+                <a href="/register" class="text-center" style="margin-left:5px">Register here !!</a>
             </div>
         </div>
         <!-- /.form-box -->

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Users extends Migration
+class Movies extends Migration
 {
 	public function up()
 	{
@@ -15,33 +15,26 @@ class Users extends Migration
 				'unsigned'       => true,
 				'auto_increment' => true,
 			],
-			'first_name'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '100',
-			],
-			'last_name'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '100',
-			],
-			'first_name'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '100',
-			],
-			'email'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '100',
-			],
-			'password'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '100',
-			],
-			'role'       => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '10',
-			],
-			'photo'       => [
+			'title'       => [
 				'type'           => 'VARCHAR',
 				'constraint'     => '255',
+			],
+			'genre'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '100',
+			],
+			'year'       => [
+				'type'           => 'INT',
+			],
+			'rating'       => [
+				'type'           => 'INT',
+			],
+			'poster'       => [
+				'type'           => 'VARCHAR',
+				'constraint'     => '255',
+			],
+			'description'       => [
+				'type'           => 'TEXT'
 			],
 			'created_at'       => [
 				'type'           => 'DATETIME',
@@ -53,13 +46,13 @@ class Users extends Migration
 			]
 		]);
 		$this->forge->addKey('id', true);
-		$this->forge->createTable('users');
+		$this->forge->createTable('movies');
 	}
 
 	//--------------------------------------------------------------------
 
 	public function down()
 	{
-		$this->forge->dropTable('users');
+		$this->forge->dropTable('movies');
 	}
 }
